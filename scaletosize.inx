@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+    <_name>Scale to size</_name>
+    <id>org.ekips.filter.scaletosize</id>
+    <dependency type="executable" location="extensions">scaletosize.py</dependency>
+    <dependency type="executable" location="extensions">inkex.py</dependency>
+    <dependency type="executable" location="extensions">measure.py</dependency>
+    <dependency type="executable" location="extensions">simpletransform.py</dependency>
+    <param name="measurement_type" type="enum" _gui-text="Measurement Type: ">
+				<_item value="length">Length</_item>
+				<_item value="area">Area</_item>
+	  </param>
+			
+    <param name="expected_size" type="float" min="0.001" max="10000.0" _gui-text="Expected size: ">10.0</param>
+	  <param name="scale_type" type="enum" _gui-text="Scaling type: ">
+			<item value="Uniform">uniform</item>
+			<item value="Horizontal">horizontal</item>
+			<item value="Vertical">Vertical</item>
+		</param>
+    <page name="desc" _gui-text="Help">
+			<_param name="help" type="description" xml:space="preserve">This effect will measure the selected path and scale it to have the given size.</_param>
+		</page>
+		
+		<effect>
+      <object-type>all</object-type>
+      <effects-menu>
+         <submenu _name="Modify Path"/>
+      </effects-menu>
+    </effect>
+  
+    <script>
+        <command reldir="extensions" interpreter="python">scaletosize.py</command>
+    </script>
+</inkscape-extension>
